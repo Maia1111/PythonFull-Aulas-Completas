@@ -1,3 +1,19 @@
 from django.db import models
 
-# Create your models here.
+class Cargos(models.Model):
+    nome = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nome
+
+    
+
+class Pessoa(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    senha = models.CharField(max_length=100)
+    cargo = models.ForeignKey(Cargos,on_delete=models.DO_NOTHING, default=None)
+
+    def __str__(self):
+        return self.nome
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{%  block 'head' %} <link rel="stylesheet" href="{% static 'css/css.css' %}"> {% endblock %}
+
+{% block 'ceonteudo' %}  
+
+<form method="POST" action="{% url 'cadastro' %}">
+    {% csrf_token %}
+    <input type="text" placeholder="nome" name="nome">
+    <input type="email" placeholder=" email" name="email">
+    <input type="password" placeholder=" senha" name="senha">
+    <input type="text" placeholder="cargo" name="cargo">
+    <input type="submit">
+</form>
+   
+
+
+
+{% endblock %}
+
+
