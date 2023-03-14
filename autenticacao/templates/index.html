@@ -1,6 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
+{%  block 'head' %} <link rel="stylesheet" href="{% static 'css/css.css' %}"> {% endblock %}
 
-<link rel="stylesheet" href="{% static 'css/css.css' %}">
+{% block 'body' %}  
+    <img src="{% static 'img/img2.jpeg'%}">
 
-<img src="{% static 'img/img2.jpeg'%}">
+    <img src="{% static 'img/img.jpeg'%}">
+
+
+
+{% endblock %}
+
 
