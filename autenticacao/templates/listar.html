@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{%  block 'head' %} <link rel="stylesheet" href="{% static 'css/css.css' %}"> {% endblock %}
+
+{% block 'ceonteudo' %} 
+
+{% for i in pessoas %}
+
+    <h1>Nome: {{i.nome}}</h1>
+    <br>
+    <h1>email: {{i.email}}</h1>
+    <br>
+    <h1>Senha: {{i.senha}}</h1>
+    <br>
+    <h1>Cargo: {{i.cargo.nome}}</h1>
+    <hr>
+{% endfor%}
+
+
+
+{% endblock %}
