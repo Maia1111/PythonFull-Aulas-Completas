@@ -22,17 +22,7 @@ def cadastro(request):
 
    
 def listar(request):
-   if len(request.GET) != 0:
-       nome = request.GET.get('nome')
-       email = request.GET.get('email')
-       senha = request.GET.get('senha')
-       cargo = Cargos.objects.filter(id = 2).first()
-       pessoa = Pessoa(nome=nome, email=email, senha=senha, cargo=cargo)
-       pessoa.save()
-       print(pessoa)
-
-   pessoas = Pessoa.objects.all()
-   return render(request, 'listar.html', {'pessoas': pessoas})
-
-
-  
+    # função vai listar apenas as pessoas com cargo de id 1
+ 
+    pessoas = Pessoa.objects.filter(cargo__pk = 2)  
+    return render(request, 'listar.html', {'pessoas': pessoas})
