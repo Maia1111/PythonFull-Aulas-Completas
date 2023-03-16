@@ -12,7 +12,7 @@ def cadastro(request):
          nome = request.POST.get('nome')
          email = request.POST.get('email')
          senha = request.POST.get('senha')
-         cargo = Cargos.objects.filter(id = 1).first()
+         cargo = Cargos.objects.get(id=1)
          
 
          pessoa = Pessoa(nome=nome, email=email, senha=senha, cargo=cargo)
@@ -26,7 +26,7 @@ def listar(request):
        nome = request.GET.get('nome')
        email = request.GET.get('email')
        senha = request.GET.get('senha')
-       cargo = Cargos.objects.filter(id = 1).first()
+       cargo = Cargos.objects.filter(id = 2).first()
        pessoa = Pessoa(nome=nome, email=email, senha=senha, cargo=cargo)
        pessoa.save()
        print(pessoa)
