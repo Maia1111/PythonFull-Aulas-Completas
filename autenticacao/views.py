@@ -22,7 +22,12 @@ def cadastro(request):
 
    
 def listar(request):
-    # função vai listar apenas as pessoas com cargo de id 1
- 
-    pessoas = Pessoa.objects.filter(cargo__pk = 2)  
-    return render(request, 'listar.html', {'pessoas': pessoas})
+    # Alterando um campo 
+    cargo = Cargos.objects.get(id = 1)
+    pessoa = Pessoa.objects.get(id = 3) 
+   
+    pessoa.cargo = cargo
+    pessoa.save()
+
+    
+    return render(request, 'listar.html', {'pessoas': pessoa})
