@@ -23,11 +23,13 @@ def cadastro(request):
    
 def listar(request):
     # Alterando um campo 
-    cargo = Cargos.objects.get(id = 1)
+    cargo1 = Cargos.objects.get(id = 1)
+    cargo2 = Cargos.objects.get(id = 2)
     pessoa = Pessoa.objects.get(id = 3) 
-   
-    pessoa.cargo = cargo
+    pessoa.cargo.add(cargo1, cargo2)   
     pessoa.save()
+
+    pessoa = Pessoa.objects.all()
 
     
     return render(request, 'listar.html', {'pessoas': pessoa})
