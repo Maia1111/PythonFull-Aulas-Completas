@@ -22,12 +22,10 @@ def cadastro(request):
 
    
 def listar(request):
-    # Alterando um campo 
-    cargo1 = Cargos.objects.get(id = 1)
-    cargo2 = Cargos.objects.get(id = 2)
-    pessoa = Pessoa.objects.get(id = 3) 
-    pessoa.cargo.add(cargo1, cargo2)   
-    pessoa.save()
+    # Trazer do banco de dados todas as pessoas que tem o cargo admin
+    cargo = Cargos.objects.get(id = 2)
+    pessoa_admin = Pessoa.objects.filter(cargo = cargo)
+    print(pessoa_admin)
 
     pessoa = Pessoa.objects.all()
 
