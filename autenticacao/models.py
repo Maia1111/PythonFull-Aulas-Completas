@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.safestring import mark_safe
+from django.http import HttpResponse
 
 class Cargos(models.Model):
     nome = models.CharField(max_length=20)
@@ -27,7 +28,7 @@ class Pessoa(models.Model):
     
     
     def get_foto(self):
-        return mark_safe(f'<img style="width: 60px;" src="{self.foto.url}">')
+        return mark_safe(f'<img style="width: 30px;" src="{self.foto.url}">')
     
 class Pedido(models.Model):   
     nome = models.CharField(max_length=100)    
@@ -37,5 +38,10 @@ class Pedido(models.Model):
 
 
 
+def mostra_pessoa(self):
+    return HttpResponse('teste')
+
+
+mostra_pessoa.label = "mostra pessoa"
 
 
