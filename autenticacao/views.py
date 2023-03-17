@@ -22,12 +22,14 @@ def cadastro(request):
 
    
 def listar(request):
-    # Trazer do banco de dados todas as pessoas que tem o cargo admin
-    cargo = Cargos.objects.get(id = 2)
-    pessoa_admin = Pessoa.objects.filter(cargo = cargo)
-    print(pessoa_admin)
+    # Trazer  todos os cargos de uma determinada pessoa
 
-    pessoa = Pessoa.objects.all()
+    pessoa  = Pessoa.objects.get(id = 3)
+    cargos = Cargos.objects.filter(pessoa = pessoa )
+    print(cargos)
+
+    pessoas = Pessoa.objects.all()
+
 
     
-    return render(request, 'listar.html', {'pessoas': pessoa})
+    return render(request, 'listar.html', {'pessoas': pessoas})
