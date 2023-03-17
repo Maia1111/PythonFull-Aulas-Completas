@@ -20,13 +20,15 @@ class PessoaAdmin(admin.ModelAdmin, DjangoObjectActions):
     search_fields = ('nome',)
     list_filter = ('cargo',)
 
-    def mostra_pessoa(self, request, pessoa):
-        return HttpResponse('Teste')
     
-    mostra_pessoa.label = "mostra pessoa"
-    change_actions = ("mostra_pessoa",)
+class Pessoa(admin.ModelAdmin):
+    list_display = ('campo1', 'campo2', 'botao_salvar')
 
-    
+    def botao_salvar(self, obj):
+        return '<button type="submit">Salvar</button>'
+
+    botao_salvar.short_description = "Salvar"
+
 
 
 
