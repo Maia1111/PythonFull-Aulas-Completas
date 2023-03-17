@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load filtros %}
+{% block 'ceonteudo' %}     
+
+     <h1>Nome: {{pessoas.nome}}</h1>
+     <br>
+     <h1>email: {{pessoas.email}}</h1>
+     <br>
+     <h1>Senha: {{pessoas.senha}}</h1>
+     <br>     
+     <hr>
+
+     <h1>Cargos da pessoa</h1>
+     {% for cargo in cargos  %}
+               
+         <h2>{{cargo.nome}}</h2>    
+
+       
+     {% endfor %}
+
+   
+    
+
+
+{% endblock %}

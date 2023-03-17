@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from.models import *
+from django.http import Http404
+from django.shortcuts import get_object_or_404
+
+
 
 def cadastro(request): 
     if request.method =="GET":
@@ -33,3 +37,14 @@ def listar(request):
 
     
     return render(request, 'listar.html', {'pessoas': pessoas})
+
+
+def listar_unico(request, id):
+    pessoa = get_object_or_404(Pessoa, id = id)
+    cargos = Cargos.objects.filter(pessoa = pessoa )
+
+
+    return render(request, 'listar_unico.html', {'pessoas': pessoa, 'cargos': cargos})
+    
+
+    
